@@ -1,0 +1,185 @@
+using System;
+
+namespace _2___Pomaluj_mojego_dotNETa
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Zadanie1();
+            //Zadanie2();
+            //Zadanie3();
+            //Zadanie4();
+            //Zadanie5();
+            //Zadanie6();
+            //Zadanie7();
+            //Zadanie8();
+           
+        }
+
+        //Zad. 1.
+        //Napisz program konsolowy, który spróbuje porównać ze sobą dwie zmienne typu int, które
+        //zostaną zadeklarowane w kodzie programu.Zwróć uwagę na zachowanie programu i wyświetlone
+        //komunikaty.
+        //static void Zadanie1()
+        // {
+        //     int num1, num2;
+
+        //     if (num1 < num2)
+        //     {
+        //         Console.WriteLine("pierwsa liczba jest mniejsza od drugiej");
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("pierwsza liczba jest większa lub równa drugiej");
+        //     }
+        // }
+
+        //       Zad. 2.
+        //Napisz program konsolowy, który porówna ze sobą dwie zmienne typu int ze zdefiniowanymi
+        //wartościami, które będą przez Ciebie podane w kodzie.Wypisz wynik porównania w konsoli.
+        static void Zadanie2()
+        {
+            int num1=14, num2=15;
+
+            if (num1 < num2)
+            {
+                Console.WriteLine("pierwsa liczba jest mniejsza od drugiej");
+            }
+            else
+            {
+                Console.WriteLine("pierwsza liczba jest większa lub równa drugiej");
+            }
+
+        }
+//        //       Zad. 3.
+//        Napisz program konsolowy, który porówna ze sobą dwie zmienne typu int, których wartości
+//zostaną pobrane z konsoli.Wypisz wynik porównania w konsoli.
+        static void Zadanie3()
+        {
+            Console.Write("Podaj pierwszą liczbę całkowitą: ");
+            int num1 = Int32.Parse(Console.ReadLine());
+            Console.Write("Podaj drugą liczbę całkowitą: ");
+            int num2 = Int32.Parse(Console.ReadLine());
+            if (num1 < num2)
+            {
+                Console.WriteLine("pierwsa liczba jest mniejsza od drugiej");
+            }
+            else
+            {
+                Console.WriteLine("pierwsza liczba jest większa lub równa drugiej");
+            }
+        }
+//        Zad. 4.
+//Napisz program konsolowy, który sprawdzi, czy wartość pobrana z konsoli jest większa od 5 i
+//mniejsza od 20. Wypisz wynik w konsoli.
+        static void Zadanie4()
+        {
+            Console.Write("Podaj liczbę całkowitą: ");
+            int num1 = Int32.Parse(Console.ReadLine());
+
+            if (num1 > 5 && num1 < 20)
+            {
+                Console.WriteLine("Podana liczba jest większa od 5, ale mniejsza od 20.");
+            }
+            else
+            {
+                Console.WriteLine("Podana liczba jest mniejsza lub równa 5, lub większa lub równa 20.");
+            }
+        }
+//        Zad. 5.
+//Napisz program konsolowy, który sprawdzi, czy wartość pobrana z konsoli jest spoza zakresu
+//<5; 20>. Wypisz wynik w konsoli.
+        static void Zadanie5()
+        {
+            Console.Write("Podaj liczbę całkowitą: ");
+            int num1 = Int32.Parse(Console.ReadLine());
+
+            if (num1 >= 5 && num1 <= 20)
+            {
+                Console.WriteLine("Podana liczba mieści się w zakresie <5;20>");
+            }
+            else
+                Console.WriteLine($"{num1} nie mieści się w zakresie <5;20>");
+        }
+//        Zad. 6.
+//Napisz program konsolowy, który pobierze z konsoli dwie liczby całkowite, po czym do trzeciej
+//zmiennej przypisze większą wartość.Wykorzystaj przypisanie warunkowe i wypisz wynik w konsoli.
+        static void Zadanie6()
+        {
+            Console.Write("Podaj pierwszą liczbę całkowitą: ");
+            int num1 = Int32.Parse(Console.ReadLine());
+            Console.Write("Podaj drugą liczbę całkowitą: ");
+            int num2 = Int32.Parse(Console.ReadLine());
+            int num3;
+            if (num1 < num2)
+            {
+                num3 = num2;
+                Console.WriteLine($"{num3} jest większe od {num1}");
+            }
+            else if(num1 > num2)
+            {
+                num3 = num1;
+                Console.WriteLine($"{num3} jest większe od {num2}");
+            }
+            else
+            {
+                Console.WriteLine("Liczby są równe.");
+            }
+        }
+//        Zad 7.
+//Napisz program konsolowy, który pobierze z konsoli długości trzech boków trójkąta.Sprawdź,
+//czy z podanych wartości można utworzyć trójkąt.Wypisz wynik w konsoli.
+        static void Zadanie7()
+        {
+            Console.Write("Podaj długość pierwszego odcinka: ");
+            int num1 = Int32.Parse(Console.ReadLine());
+            Console.Write("Podaj długość drugiego odcinka: ");
+            int num2 = Int32.Parse(Console.ReadLine());
+            Console.Write("Podaj długość trzeciego odcinka: ");
+            int num3 = Int32.Parse(Console.ReadLine());
+
+            if (num1 > 0 && num2 > 0 && num3 > 0)
+            {
+                if (num1 + num2 > num3)
+                    Console.WriteLine("Z tych odcinków możesz stworzyć trójkąt");
+                else if (num1 + num3 > num2)
+                    Console.WriteLine("Z tych odcinków możesz stworzyć trójkąt");
+                else if (num2 + num3 > num1)
+                    Console.WriteLine("Z tych odcinków możesz stworzyć trójkąt");
+                else
+                   Console.WriteLine("Z tych odcinków nie możesz stworzyć trójkąta");
+            }
+            else
+                Console.WriteLine("Z tych odcinków nie możesz stworzyć trójkąta");
+        }
+//      Zad 8.
+//        Napisz program konsolowy, który pobierze dwie wartości z konsoli.Wyświetl w konsoli wyniki
+//  dodawania, odejmowania, mnożenia oraz dzielenia.Pamiętaj, żeby przy próbie dzielenia przez 0
+//wyświetlić odpowiedni komunikat, który uniemożliwi przeprowadzenie „zakazanego” działania.Użyj
+//  typu danych double
+        static void Zadanie8()
+        {
+            Console.Write("Podaj pierwszą liczbę: ");
+            double num1 = Double.Parse(Console.ReadLine());
+            Console.Write("Podaj drugą liczbę: ");
+            double num2 = Double.Parse(Console.ReadLine());
+
+            //Dodawanie
+            Console.WriteLine($"{num1} + {num2} = {num1 + num2}");
+            //Odejmowanie
+            Console.WriteLine($"{num1} - {num2} = {num1 - num2}");
+            //Mnożenie
+            Console.WriteLine($"{num1} * {num2} = {num1 * num2}");
+            //Dzielenie
+            if (num2 == 0)
+                Console.WriteLine($" {num1} / {num2} ?! Nie można dzielić przez zero!");
+            else
+                Console.WriteLine($"{num1} / {num2} = {num1 / num2}");
+        }
+    
+    
+    }
+
+
+}
