@@ -1,1 +1,303 @@
+using System;
+using System.ComponentModel;
+using System.Security.Cryptography;
 
+namespace _3___Pomaluj_mojego_dotNETa
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Zadanie1();
+			Zadanie2();
+			Zadanie3456();
+			Zadanie8();
+		}
+
+		static void Zadanie1()
+		{
+			//			Zad. 1.
+			//Napisz kalkulator, w którym użytkownik poda dwie liczby, a następnie wybierze działanie, które
+			//chce wykonać(1.Dodawanie, 2.Odejmowanie, 3.Mnożenie, 4.Dzielenie) i otrzyma w konsoli gotowy
+			//wynik.Przy konstruowaniu logiki menu wyboru działania zastosuj konstrukcję if…else, którą zagęścisz
+			//(warunek w warunku). Pamiętaj cholero, nie dziel przez 0! Co, jeśli użytkownik poda działanie
+			//nieprawidłowo?
+			Console.Write("Podaj pierwszą liczbę: ");
+			double num1 = Double.Parse(Console.ReadLine());
+			Console.Write("Podaj drugą liczbę: ");
+			double num2 = Double.Parse(Console.ReadLine());
+			Console.WriteLine("Wybierz działanie które chcesz wykonać:\n1.Dodawanie\n2.Odejmowanie\n3.Mnożenie\n4.Dzielenie");
+			int operation = Int32.Parse(Console.ReadLine());
+			if (operation == 1)
+				Console.WriteLine($"Wynik działania: {num1 + num2}");
+			else if (operation == 2)
+				Console.WriteLine($"Wynik działania: {num1 - num2}");
+			else if (operation == 3)
+				Console.WriteLine($"Wynik działania: {num1 * num2}");
+			else if (operation == 4)
+				if (num2 == 0)
+					Console.WriteLine("Pamiętej cholero, nie dziel przez 0!");
+				else
+					Console.WriteLine($"Wynik działania: {num1 / num2}");
+			else
+				Console.WriteLine("Niewłaściwy wybór");
+		}
+
+		static void Zadanie2()
+		{
+			Console.Write("Podaj pierwszą liczbę: ");
+			double num1 = Double.Parse(Console.ReadLine());
+			Console.Write("Podaj drugą liczbę: ");
+			double num2 = Double.Parse(Console.ReadLine());
+			Console.WriteLine("Wybierz działanie które chcesz wykonać:\n1.Dodawanie\n2.Odejmowanie\n3.Mnożenie\n4.Dzielenie");
+			int operation = Int32.Parse(Console.ReadLine());
+			if (operation == 1)
+				Console.WriteLine($"Wynik działania: {num1 + num2}");
+			else if (operation == 2)
+				Console.WriteLine($"Wynik działania: {num1 - num2}");
+			else if (operation == 3)
+				Console.WriteLine($"Wynik działania: {num1 * num2}");
+			else if (operation == 4)
+			{
+				if (num2 == 0)
+					Console.WriteLine("Pamiętej cholero, nie dziel przez 0!");
+				else
+					Console.WriteLine($"Wynik działania: {num1 / num2}");
+			}
+			else
+				Console.WriteLine("Niewłaściwy wybór");
+		}
+
+		static void Zadanie3456()
+		{
+			Console.WriteLine("Podaj pierwszą liczbę: ");
+			double num1 = Double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj drugą liczbę: ");
+			double num2 = Double.Parse(Console.ReadLine());
+			Console.WriteLine("Wskaż działanie które chcesz wykonać:\n1.Dodawanie\n2.Odejmowanie\n3.Mnożenie\n4.Dzielenie\n5.Dzielenie z resztą\n6.Druga potęga\n7.Trzecia potęga\n\n0.Zakończ działanie programu");
+			int operation = Int32.Parse(Console.ReadLine());
+			switch (operation)
+			{
+				case 1:
+					Addition(num1, num2);
+					break;
+				case 2:
+					Substraction(num1, num2);
+					break;
+				case 3:
+					Multiplication(num1, num2);
+					break;
+				case 4:
+					if (operation == 0)
+						Console.WriteLine("Nie można dzielić przez 0");
+					else
+						Division(num1, num2);
+					break;
+				case 5:
+					Modulo(num1, num2);
+					break;
+				case 6:
+					PowTwo(num1, num2);
+					break;
+				case 7:
+					PowThree(num1, num2);
+					break;
+				case 0:
+					ExitConsole();
+					break;
+				default:
+					Console.WriteLine("Dokonanko niewłaściwego wyboru.");
+					break;
+			}
+		}
+
+		static void Addition(double num1, double num2)
+		{
+			Console.WriteLine("Wynik działania to " + (num1 + num2));
+		}
+
+		static void Substraction(double num1, double num2)
+		{
+			Console.WriteLine("Wynik działania to " + (num1 - num2));
+		}
+
+		static void Multiplication(double num1, double num2)
+		{
+			Console.WriteLine("Wynik działania to " + (num1 * num2));
+		}
+
+		static void Division(double num1, double num2)
+		{
+			if (num2 == 0)
+			{
+				Console.WriteLine("Nie można dzielić przez 0");
+			}
+			else
+			{
+				Console.WriteLine("Wynik działania to " + (num1 / num2));
+			}
+		}
+
+		static void Modulo(double num1, double num2)
+		{
+			if (num2 == 0)
+			{
+				Console.WriteLine("Nie można dzielić przez 0");
+			}
+			else
+			{
+				Console.WriteLine("Wynik działania to " + (num1 % num2));
+			}
+		}
+
+		static void PowTwo(double num1, double num2)
+		{
+			Console.WriteLine("Wskaż liczbę którą chcesz podnieść do drugiej potęgi:\n1." + num1.ToString() + "\n2." + num2.ToString());
+			int powChoice = Int32.Parse(Console.ReadLine());
+			switch (powChoice)
+			{
+				case 1:
+					Console.WriteLine("Wynik potęgowania to " + Math.Pow(num1, 2));
+					break;
+				case 2:
+					Console.WriteLine("Wynik potęgowania to " + Math.Pow(num2, 2));
+					break;
+				default:
+					Console.WriteLine("Dokonano niepoprawnego wyboru!");
+					break;
+			}
+		}
+
+		static void PowThree(double num1, double num2)
+		{
+			Console.WriteLine("Wskaż liczbę którą chcesz podnieść do trzeciej potęgi:\n1." + num1.ToString() + "\n2." + num2.ToString());
+			int powChoice = Int32.Parse(Console.ReadLine());
+			switch (powChoice)
+			{
+				case 1:
+					Console.WriteLine("Wynik potęgowania to " + Math.Pow(num1, 3));
+					break;
+				case 2:
+					Console.WriteLine("Wynik potęgowania to " + Math.Pow(num2, 3));
+					break;
+				default:
+					Console.WriteLine("Dokonano niepoprawnego wyboru!");
+					break;
+			}
+		}
+
+		static void ExitConsole()
+		{
+			Console.WriteLine("Do zobaczenia.");
+		}
+		static void Zadanie8()
+		{
+			Console.WriteLine("Wybierz figurę:\n1.Kwadrat\n2.Prostokąt\n3.Trójkąt\n4.Trapez\n5.Koło\n6.Romb\n7.Równoległobok");
+			int pickForm = Int32.Parse(Console.ReadLine());
+			switch (pickForm)
+			{
+				case 1:
+					SquareCalc();
+					break;
+				case 2:
+					RectangleCalc();
+					break;
+				case 3:
+					TriangleCalc();
+					break;
+				case 4:
+					TrapezeCalc();
+					break;
+				case 5:
+					CircleCalc();
+					break;
+				case 6:
+					RhombusCalc();
+					break;
+				case 7:
+					ParallelogramCalc();
+					break;
+				default:
+					Console.WriteLine("Dokonano niewłaciwego wyboru!");
+					break;
+			}
+		}
+
+		static void SquareCalc()
+		{
+			Console.WriteLine("Podaj długość boku: ");
+			double length = double.Parse(Console.ReadLine());
+			Console.WriteLine("Obwód wynosi " + (4 * length) + " a pole powierzchni " + Math.Pow(length, 2));
+		}
+
+		static void RectangleCalc()
+		{
+			Console.WriteLine("Podaj długość pierwszego boku: ");
+			double length1 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość drugiego boku: ");
+			double length2 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Obwód wynosi " + (2 * length1 + 2 * length2) + " a pole powierzchni " + length1 * length2);
+		}
+
+		static void CircleCalc()
+		{
+			Console.WriteLine("Podaj długość promienia: ");
+			double radius = double.Parse(Console.ReadLine());
+			Console.WriteLine("Obwód wynosi " + (2 * Math.PI * radius) + " a pole powierzchni " + Math.PI * Math.Pow(radius, 2));
+		}
+
+		static void TriangleCalc()
+		{
+			Console.WriteLine("Podaj długość podstawy: ");
+			double length1 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość drugiego boku: ");
+			double length2 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość trzeciego boku: ");
+			double length3 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj wysokość trójkąta: ");
+			double length4 = double.Parse(Console.ReadLine());
+			double triPerimeter = length1 + length2 + length3;
+			double surArea = 0.5 * length1 * length4;
+			Console.WriteLine("Obwód wynosi " + triPerimeter + " a pole powierzchni " + surArea);
+		}
+
+		static void TrapezeCalc()
+		{
+			Console.WriteLine("Podaj długość dolnej podstawy: ");
+			double length1 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość górnej podstawy: ");
+			double length2 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość trzeciego boku: ");
+			double length3 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość czwartego boku: ");
+			double length4 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj wysokość trapezu: ");
+			double length5 = double.Parse(Console.ReadLine());
+			double traPerimeter = length1 + length2 + length3 + length4;
+			double surArea = (length1 + length2) / 2 * length5;
+			Console.WriteLine("Obwód wynosi " + traPerimeter + " a pole powierzchni " + surArea);
+		}
+
+		static void RhombusCalc()
+		{
+			Console.WriteLine("Podaj długość boku: ");
+			double length1 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj wysokość: ");
+			double length2 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Obwód wynosi " + (4 * length1) + " a pole powierzchni " + length1 * length2);
+		}
+
+		static void ParallelogramCalc()
+		{
+			Console.WriteLine("Podaj długość pierwszego boku: ");
+			double length1 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj długość drugiego boku: ");
+			double length2 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Podaj wysokość: ");
+			double length3 = double.Parse(Console.ReadLine());
+			Console.WriteLine("Obwód wynosi " + (2 * length1 + 2 * length2) + " a pole powierzchni " + length1 * length3);
+		}
+	}
+}
+	
+    
